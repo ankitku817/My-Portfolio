@@ -42,7 +42,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         <Link to="/" className="text-2xl font-bold text-blue-600" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          AnkitDev
+          Ankit
         </Link>
 
         <ul className="hidden md:flex space-x-8 text-gray-700 dark:text-gray-300">
