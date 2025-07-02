@@ -28,8 +28,7 @@ const projectData = [
         description:
             "A responsive personal portfolio website showcasing projects, skills, and contact information. Built with React and Tailwind CSS.",
         tech: ["React", "Tailwind CSS", "JavaScript"],
-        github: "https://github.com/ankitku817/portfolio-website",
-        demo: "https://yourusername.github.io/portfolio-website/",
+        github: "https://github.com/ankitku817/My-Portfolio.git",
     },
 ];
 
