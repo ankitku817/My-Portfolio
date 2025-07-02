@@ -6,8 +6,9 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
   { name: 'Projects', path: '/projects' },
+  { name: 'Experiance', path: '/experiance' },
   { name: 'Contact', path: '/contact' }
-  
+
 ];
 
 export default function Navbar() {
@@ -83,18 +84,16 @@ export default function Navbar() {
         </button>
       </div>
       <div
-        className={`md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 ${
-          menuOpen ? 'max-h-screen' : 'max-h-0'
-        }`}
+        className={`md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-screen' : 'max-h-0'
+          }`}
       >
         <ul>
           {navLinks.map(({ name, path }) => (
             <li key={name} className="border-b border-gray-200 dark:border-gray-700">
               <Link
                 to={path}
-                className={`block px-6 py-3 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900 ${
-                  activePath === path ? 'text-blue-600 font-semibold' : ''
-                }`}
+                className={`block px-6 py-3 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900 ${activePath === path ? 'text-blue-600 font-semibold' : ''
+                  }`}
                 onClick={(e) => {
                   e.preventDefault();
                   setMenuOpen(false);

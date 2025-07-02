@@ -1,38 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import Resume from '../assets/Resume.pdf'
+import { FaGithub } from "react-icons/fa";
+import Resume from '../assets/Resume.pdf';
+
 const experiences = [
     {
         role: "Web Developer Intern",
         company: "NullClass Edtech Pvt Ltd",
         duration: "Aug 2024 – Dec 2024",
         details: [
-            "Developed and maintained web applications using MongoDB, Express, React, and Node.js.",
-            "Implemented RESTful APIs and integrated third-party services.",
-            "Worked on frontend and backend to ensure seamless user experiences.",
+            "Worked on a full-stack Twitter clone project using the MERN stack.",
+            "Developed user authentication using Firebase and designed tweet, like, and comment functionality.",
+            "Collaborated with a team to build responsive UI and real-time features using React and Node.js.",
         ],
     },
 ];
 
 const projects = [
     {
-        name: "College Placement Cell (MERN Stack)",
-        github: "https://github.com/ankitku817/CollegePlacementSystem",
-        description:
-            "Developed a College Placement Management System handling Students, College Admin, and Placement Admin modules. Features include registration, company listings, student applications, selection rounds, final selection tracking, and secure authentication using JWT. Used React.js and MongoDB.",
-    },
-    {
         name: "Twiller (Twitter Clone - MERN Stack)",
         github: "https://github.com/ankitku817/TwitterClone",
         description:
-            "Built a Twitter-like social media platform with tweeting, likes, comments, following users, and personalized feed. Integrated Firebase Authentication for login and responsive UI.",
-    },
-    {
-        name: "Application of Blogging (Django)",
-        github: "https://github.com/ankitku817/BloggingApp",
-        description:
-            "Dynamic blogging platform with user authentication, CRUD for blog posts, commenting, and Django Admin backend. Used SQLite database.",
+            "Twiller is a Twitter-like social media platform developed during my internship. It includes features like tweeting, liking, commenting, following users, and generating a personalized feed. I used React for the frontend, Node.js and Express for the backend, MongoDB for database, and Firebase Authentication for secure login. The UI is responsive and mobile-friendly.",
     },
 ];
 
@@ -40,7 +29,7 @@ const ExperienceSection = () => {
     return (
         <section
             id="experience"
-            className="max-w-5xl mx-auto px-6 py-16 bg-white dark:bg-gray-900 rounded-lg shadow-lg"
+            className=" mx-auto px-6 py-16 bg-white dark:bg-gray-900 rounded-lg shadow-lg"
         >
             <motion.h2
                 className="text-4xl font-extrabold mb-8 text-center text-gray-900 dark:text-white"
@@ -49,10 +38,10 @@ const ExperienceSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
-                Experience & Projects
+                Experience & Project
             </motion.h2>
 
-            {/* Work Experience */}
+            {/* Internship Experience */}
             <div className="mb-12">
                 {experiences.map(({ role, company, duration, details }, idx) => (
                     <motion.div
@@ -74,11 +63,9 @@ const ExperienceSection = () => {
                     </motion.div>
                 ))}
             </div>
-
-            {/* Projects */}
             <div>
-                <h3 className="text-3xl font-semibold mb-6 text-gray-900 dark:text-white">Projects</h3>
-                <div className="grid md:grid-cols-2 gap-8">
+                <h3 className="text-3xl font-semibold mb-6 text-gray-900 dark:text-white">Project</h3>
+                <div className="grid md:grid-cols-1 gap-8">
                     {projects.map(({ name, github, description }, idx) => (
                         <motion.div
                             key={idx}

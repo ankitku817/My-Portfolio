@@ -1,6 +1,8 @@
+// src/pages/Contact.jsx
 import React, { useState } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import InputField from '../components/InputField';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -8,7 +10,6 @@ export default function Contact() {
   const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  // Simple form validation
   const validate = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = 'Name is required';
@@ -25,22 +26,6 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' });
   };
-
-  // const handleSubmit = async e => {
-  //   e.preventDefault();
-  //   const validationErrors = validate();
-  //   if (Object.keys(validationErrors).length) {
-  //     setErrors(validationErrors);
-  //     return;
-  //   }
-  //   setSubmitting(true);
-  //   setSuccess(false);
-  //   setTimeout(() => {
-  //     setSubmitting(false);
-  //     setSuccess(true);
-  //     setFormData({ name: '', email: '', message: '' });
-  //   }, 1500);
-  // };
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -74,7 +59,7 @@ export default function Contact() {
       setSubmitting(false);
     }
   };
-  
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -114,64 +99,44 @@ export default function Contact() {
             Feel free to reach out for collaboration or just a friendly hello!
           </p>
         </div>
+
+        {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
           className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col space-y-6"
           noValidate
         >
-          <div>
-            <label htmlFor="name" className="block mb-2 font-semibold text-gray-700 dark:text-gray-300">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your name"
-              className={`w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-purple-500
-                ${errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} 
-                dark:bg-gray-900 dark:text-gray-100`}
-            />
-            {errors.name && <p className="text-red-500 mt-1 text-sm">{errors.name}</p>}
-          </div>
+          <InputField
+            label="Name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your name"
+            error={errors.name}
+            required
+          />
 
-          <div>
-            <label htmlFor="email" className="block mb-2 font-semibold text-gray-700 dark:text-gray-300">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              className={`w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-purple-500
-                ${errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}
-                dark:bg-gray-900 dark:text-gray-100`}
-            />
-            {errors.email && <p className="text-red-500 mt-1 text-sm">{errors.email}</p>}
-          </div>
+          <InputField
+            label="Email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="you@example.com"
+            error={errors.email}
+            required
+          />
 
-          <div>
-            <label htmlFor="message" className="block mb-2 font-semibold text-gray-700 dark:text-gray-300">
-              Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              rows="5"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Write your message..."
-              className={`w-full px-4 py-3 rounded-md border resize-none focus:outline-none focus:ring-2 focus:ring-purple-500
-                ${errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'}
-                dark:bg-gray-900 dark:text-gray-100`}
-            />
-            {errors.message && <p className="text-red-500 mt-1 text-sm">{errors.message}</p>}
-          </div>
+          <InputField
+            label="Message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Write your message..."
+            error={errors.message}
+            textarea
+            required
+          />
 
           <button
             type="submit"

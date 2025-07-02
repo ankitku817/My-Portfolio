@@ -1,20 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',  // Enable class-based dark mode toggling
+  darkMode: 'class',
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",  // Scan all relevant frontend files
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        // Add your custom colors here, for example:
-        // primary: '#7c3aed',
-        // secondary: '#ec4899',
-      },
-      // You can extend fonts, spacing, etc. here as well
-    },
+    extend: {},
   },
-  plugins: [
-    // Add Tailwind plugins here if needed
-  ],
-};
+  plugins: [],
+}
+

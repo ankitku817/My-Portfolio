@@ -16,6 +16,7 @@ import {
   SiMongodb,
   SiDjango,
 } from "react-icons/si";
+import SkillBadge from "../components/SkillBadge";
 
 const skills = [
   { name: "React", icon: <FaReact />, color: "text-sky-400", emoji: "⚛️" },
@@ -63,16 +64,16 @@ const SkillsSection = () => {
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            className="flex flex-col items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md p-6 pb-6 mb-6 hover:shadow-xl hover:shadow-indigo-300/30 transition-transform duration-300 hover:scale-105"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.05 }}
           >
-            <div className={`text-5xl mb-2 ${skill.color}`}>{skill.icon}</div>
-            <div className="text-2xl mb-1">{skill.emoji}</div>
-            <p className="text-lg font-semibold text-gray-700 dark:text-white text-center">
-              {skill.name}
-            </p>
+            <SkillBadge
+              name={skill.name}
+              icon={skill.icon}
+              color={skill.color}
+              emoji={skill.emoji}
+            />
           </motion.div>
         ))}
       </motion.div>
